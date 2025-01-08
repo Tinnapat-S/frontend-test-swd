@@ -1,0 +1,11 @@
+.not_found {
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+}
+
+.not_found_container {
+  grid-row-start: 2;
+}
