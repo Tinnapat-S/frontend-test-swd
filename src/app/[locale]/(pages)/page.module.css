@@ -7,8 +7,9 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 32px 1fr 32px;
+  /* display: grid;
+  grid-template-rows: 32px 1fr 32px; */
+  position: relative;
   align-items: center;
   justify-items: center;
   min-height: 100svh;

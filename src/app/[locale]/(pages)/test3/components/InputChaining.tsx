@@ -5,10 +5,12 @@ import { Input, Form, InputRef, Flex } from "antd"
 import styles from "./styles.module.css"
 
 const maxLengths = [1, 4, 5, 2, 1]
-interface IInputChaning {
-  onChange?: (value: any) => void
+interface IInputChaining {
+  id?: string
+  value?: string
+  onChange?: (value: string) => void
 }
-const InputChaining = ({ onChange }: IInputChaning) => {
+const InputChaining = ({ onChange, id, value = "" }: IInputChaining) => {
   const inputRef1 = useRef<InputRef>(null)
   const inputRef2 = useRef<InputRef>(null)
   const inputRef3 = useRef<InputRef>(null)
@@ -37,10 +39,22 @@ const InputChaining = ({ onChange }: IInputChaning) => {
     )
     if (allInputsValid) {
       const fullValue = newValues.join("")
-      console.log(fullValue)
-      //onChange(fullValue) // Handle the full value here
+      onChange?.(fullValue)
     }
   }
+  useEffect(() => {
+    if (value) {
+      // Split the string value into the individual parts
+      const splitValues = [
+        value.slice(0, 1),
+        value.slice(1, 5),
+        value.slice(5, 10),
+        value.slice(10, 12),
+        value.slice(12, 13),
+      ]
+      setValue([...splitValues])
+    }
+  }, [value])
 
   const handleOnKeyDown = (
     e: React.KeyboardEvent,
@@ -61,6 +75,7 @@ const InputChaining = ({ onChange }: IInputChaning) => {
         placeholder="0"
         style={{ width: "40px", textAlign: "center" }}
         ref={inputRef1}
+        value={values[0]}
         maxLength={1} // Allow up to 5 characters
         onChange={(e) => handleInputChange(e, inputRef2, 1, 0)} // Focus the next input when length reaches 5
       />
@@ -69,7 +84,8 @@ const InputChaining = ({ onChange }: IInputChaning) => {
         placeholder="0000"
         style={{ width: "60px", textAlign: "center" }}
         ref={inputRef2}
-        maxLength={4} // Allow up to 5 characters
+        value={values[1]}
+        maxLength={4}
         onChange={(e) => handleInputChange(e, inputRef3, 4, 1)} // Focus the next input when length reaches 5
         onKeyDown={(e) => handleOnKeyDown(e, inputRef1, 1)}
       />
@@ -78,7 +94,8 @@ const InputChaining = ({ onChange }: IInputChaning) => {
         placeholder="00000"
         style={{ width: "68px", textAlign: "center" }}
         ref={inputRef3}
-        maxLength={5} // Allow up to 5 characters
+        value={values[2]}
+        maxLength={5}
         onChange={(e) => handleInputChange(e, inputRef4, 5, 2)}
         onKeyDown={(e) => handleOnKeyDown(e, inputRef2, 2)}
       />
@@ -87,7 +104,8 @@ const InputChaining = ({ onChange }: IInputChaning) => {
         placeholder="00"
         style={{ width: "48px", textAlign: "center" }}
         ref={inputRef4}
-        maxLength={2} // Allow up to 5 characters
+        value={values[3]}
+        maxLength={2}
         onChange={(e) => handleInputChange(e, inputRef5, 2, 3)}
         onKeyDown={(e) => handleOnKeyDown(e, inputRef3, 3)}
       />
@@ -96,7 +114,8 @@ const InputChaining = ({ onChange }: IInputChaning) => {
         placeholder="0"
         style={{ width: "40px", textAlign: "center" }}
         ref={inputRef5}
-        maxLength={1} // Allow up to 5 characters
+        value={values[4]}
+        maxLength={1}
         onChange={(e) => handleInputChange(e, inputRef5, 2, 4)}
         onKeyDown={(e) => handleOnKeyDown(e, inputRef4, 4)}
       />
