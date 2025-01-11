@@ -1,0 +1,12 @@
+{
+  "headers": {
+    "test1": "Test 1",
+    "test2": "Test 2",
+    "test3": "Test 3"
+  },
+  "subHeaders": {
+    "layout_styles": "Layout & Styles",
+    "connect_api": "Connect API",
+    "form_table": "Form & Table"
+  }
+}

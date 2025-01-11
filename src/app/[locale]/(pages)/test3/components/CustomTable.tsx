@@ -6,15 +6,16 @@ import { RootState } from "@/lib/store"
 import {
   deleteMultiplePersonInfo,
   deletePersonInfo,
-  // openEditMode,
   PersonalFormStateIn,
   setSelectedPerson,
 } from "@/lib/slices/personalFormSlice"
+import { useTranslation } from "react-i18next"
 
 type TableRowSelection<T extends object = object> =
   TableProps<T>["rowSelection"]
 
 const CustomTable: React.FC = () => {
+  const { t } = useTranslation()
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
   const { personData } = useSelector(
     (state: RootState) => state.personalFormSlice
@@ -52,24 +53,26 @@ const CustomTable: React.FC = () => {
 
   const columns: TableColumnsType<PersonalFormStateIn> = [
     {
-      title: "Name",
+      title: t(`form.fullName`),
       dataIndex: "firstName",
+      render: (_, record) => `${record.firstName} ${record.lastName}`,
       sorter: true,
     },
     {
-      title: "Gender",
+      title: t(`form.gender`),
       dataIndex: "gender",
+      render: (_, record) => `${t(`gender.${record.gender}`)}`,
       sorter: true,
     },
     {
-      title: "Mobile Phone",
+      title: t(`form.mobilePhone`),
       dataIndex: "mobilePhone",
       render: (_, record) =>
         `${record.mobilePhone.areaCode}${record.mobilePhone.phoneNumber}`,
       sorter: true,
     },
     {
-      title: "Nationality",
+      title: t(`form.nationality`),
       dataIndex: "nationality",
       sorter: true,
     },

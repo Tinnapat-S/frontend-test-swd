@@ -1,7 +1,7 @@
 export const testType = [
-  { id: 1, header: "Test1", subHeader: "Layout & Styles" },
-  { id: 2, header: "Test2", subHeader: "Connect API" },
-  { id: 3, header: "Test3", subHeader: "Form & Table" },
+  { id: 1, header: "test1", subHeader: "layout_styles" },
+  { id: 2, header: "test2", subHeader: "connect_api" },
+  { id: 3, header: "test3", subHeader: "form_table" },
 ]
 
 export const phoneAreaOptions = [

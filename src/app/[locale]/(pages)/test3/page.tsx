@@ -34,6 +34,7 @@ import CustomTable from "./components/CustomTable"
 import { generateUniqueId } from "@/utils/utilFunc"
 import { useEffect } from "react"
 import dayjs from "dayjs"
+import { useTranslation } from "react-i18next"
 
 const DATE_FORMAT = "YYYY/MM/DD"
 const checkPhone = (
@@ -48,7 +49,9 @@ const checkPhone = (
   }
   return Promise.reject(new Error("Invalid phone number!"))
 }
+
 export default function Test3() {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
   const { selectedPerson } = useSelector(
     (state: RootState) => state.personalFormSlice
@@ -111,7 +114,7 @@ export default function Test3() {
     <>
       <Row style={{ width: "100%", padding: "0px 20px" }} justify={"start"}>
         <Col>
-          <Typography.Title>Form & Table</Typography.Title>
+          <Typography.Title>{t(`header`)}</Typography.Title>
         </Col>
       </Row>
       <Flex align="center" justify="center" style={{ marginTop: "48px" }}>
@@ -120,7 +123,7 @@ export default function Test3() {
           <Row gutter={24}>
             <Col span={6}>
               <Form.Item<PersonalFormState>
-                label="Title"
+                label={t("form.title")}
                 name="title"
                 rules={[{ required: true, message: "Need title!" }]}
               >
@@ -129,7 +132,7 @@ export default function Test3() {
             </Col>
             <Col span={9}>
               <Form.Item<PersonalFormState>
-                label="FirstName"
+                label={t("form.firstName")}
                 name="firstName"
                 rules={[{ required: true, message: "Please input your name!" }]}
               >
@@ -138,7 +141,7 @@ export default function Test3() {
             </Col>
             <Col span={9}>
               <Form.Item<PersonalFormState>
-                label="LastName"
+                label={t(`form.lastName`)}
                 name="lastName"
                 rules={[{ required: true, message: "Please input your name!" }]}
               >
@@ -149,7 +152,7 @@ export default function Test3() {
           <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             <Col className="gutter-row" span={8}>
               <Form.Item<PersonalFormState>
-                label="Birthday"
+                label={t(`form.birthDay`)}
                 name="birthDay"
                 rules={[
                   { required: true, message: "Please input your birthdate!" },
@@ -160,7 +163,7 @@ export default function Test3() {
             </Col>
             <Col className="gutter-row" span={10}>
               <Form.Item<PersonalFormState>
-                label="Nationality"
+                label={t(`form.nationality`)}
                 name="nationality"
                 rules={[{ required: true, message: "Need nationality!" }]}
               >
@@ -175,14 +178,14 @@ export default function Test3() {
             <InputChaining />
           </Form.Item>
           <Form.Item
-            label="Gender"
+            label={t(`form.gender`)}
             name="gender"
             rules={[{ required: true, message: "Need Gender!" }]}
           >
             <Radio.Group options={genderOptions} />
           </Form.Item>
           <Form.Item
-            label="Mobile Phone"
+            label={t(`form.mobilePhone`)}
             name="mobilePhone"
             rules={[{ validator: checkPhone, required: true }]}
           >
@@ -191,13 +194,13 @@ export default function Test3() {
           <Flex>
             <Flex vertical style={{ width: "100%" }}>
               <Form.Item<PersonalFormState>
-                label="Passport No"
+                label={t(`form.passportNo`)}
                 name="passportNo"
               >
                 <Input placeholder="Passport Number" />
               </Form.Item>
               <Form.Item<PersonalFormState>
-                label="Expected Salary"
+                label={t(`form.expectedSalary`)}
                 name="expectedSalary"
                 rules={[
                   { required: true, message: "How much?" },

@@ -1,0 +1,21 @@
+{
+  "header": "ฟอร์ม และตาราง",
+  "form": {
+    "title": "คำนำหน้า",
+    "firstName": "ชื่อ",
+    "lastName": "นามสกุล",
+    "fullName": "ชื่อ-นามสกุล",
+    "birthDay": "วันเกิด",
+    "nationality": "สัญชาติ",
+    "citizenId": "เลขประจำตัวประชาชน",
+    "gender": "เพศ",
+    "mobilePhone": "มือถือ",
+    "passportNo": "Passport No",
+    "expectedSalary": "เงินเดือนที่ต้องการ"
+  },
+  "gender": {
+    "male": "ชาย",
+    "female": "หญิง",
+    "unsex": "ไม่ระบุ"
+  }
+}
