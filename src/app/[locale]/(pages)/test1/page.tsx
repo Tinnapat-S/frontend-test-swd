@@ -172,29 +172,31 @@ export default function Test1() {
             </Button>
           </Col>
         </Row>
-        <Flex vertical gap={16}>
-          <Row gutter={[16, 16]} style={{ order: isSwap ? 2 : 1 }}>
-            {/* Middle Row - Circle, Oval, Trapezoid */}
-            <Col span={2}></Col>
-            {shapeStylesList.slice(0, 3).map((shape, index) => (
-              <Col flex={1} key={index}>
-                <Button style={cardStyle} onClick={handleShapeClick}>
-                  <div style={shapeStyles[`${shape}`]} />
-                </Button>
-              </Col>
-            ))}
-          </Row>
-          <Row gutter={[16, 16]} style={{ order: isSwap ? 1 : 2 }}>
-            {shapeStylesList.slice(3, 6).map((shape, index) => (
-              <Col flex={1} key={index}>
-                <Button style={cardStyle} onClick={handleShapeClick}>
-                  <div style={shapeStyles[`${shape}`]} />
-                </Button>
-              </Col>
-            ))}
-            <Col span={2}></Col>
-          </Row>
-        </Flex>
+        <Col offset={2}>
+          <Flex vertical gap={16}>
+            <Row gutter={[16, 16]} style={{ order: isSwap ? 2 : 1 }}>
+              {/* Middle Row - Circle, Oval, Trapezoid */}
+              <Col span={2}></Col>
+              {shapeStylesList.slice(0, 3).map((shape, index) => (
+                <Col flex={1} key={index}>
+                  <Button style={cardStyle} onClick={handleShapeClick}>
+                    <div style={shapeStyles[`${shape}`]} />
+                  </Button>
+                </Col>
+              ))}
+            </Row>
+            <Row gutter={[16, 16]} style={{ order: isSwap ? 1 : 2 }}>
+              {shapeStylesList.slice(3, 6).map((shape, index) => (
+                <Col flex={1} key={index}>
+                  <Button style={cardStyle} onClick={handleShapeClick}>
+                    <div style={shapeStyles[`${shape}`]} />
+                  </Button>
+                </Col>
+              ))}
+              <Col span={2}></Col>
+            </Row>
+          </Flex>
+        </Col>
       </Flex>
     </ConfigProvider>
   )

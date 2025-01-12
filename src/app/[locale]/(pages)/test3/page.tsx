@@ -114,11 +114,11 @@ export default function Test3() {
     <>
       <Row style={{ width: "100%", padding: "0px 20px" }} justify={"start"}>
         <Col>
-          <Typography.Title>{t(`header`)}</Typography.Title>
+          <Typography.Title>{t(`header`)}</Typography.Title>{" "}
+          <Button onClick={() => test()}>Test Form</Button>
         </Col>
       </Row>
       <Flex align="center" justify="center" style={{ marginTop: "48px" }}>
-        <Button onClick={() => test()}></Button>
         <Form form={form} onFinish={onFinish} wrapperCol={{ span: 24 }}>
           <Row gutter={24}>
             <Col span={6}>
