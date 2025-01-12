@@ -55,7 +55,9 @@ export default async function RootLayout({
                   <Row>
                     <LanguageSwitcher />
                   </Row>
-                  <Button style={{ padding: "4px" }}>Home</Button>
+                  <Button style={{ padding: "4px" }} href="/">
+                    Home
+                  </Button>
                 </Flex>
                 {children}
               </TranslationsProvider>
