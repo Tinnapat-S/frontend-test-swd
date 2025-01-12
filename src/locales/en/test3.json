@@ -6,16 +6,16 @@
     "lastName": "Lastname",
     "fullName": "Fullname",
     "birthDay": "Birthday",
-    "nationality": "สัญชาติ",
-    "citizenId": "เลขประจำตัวประชาชน",
-    "gender": "เพศ",
-    "mobilePhone": "มือถือ",
+    "nationality": "Nationality",
+    "citizenId": "Citizen ID",
+    "gender": "Gender",
+    "mobilePhone": "Mobile Phone",
     "passportNo": "Passport No",
-    "expectedSalary": "เงินเดือนที่ต้องการ"
+    "expectedSalary": "Expected Salary"
   },
   "gender": {
     "male": "male",
     "female": "female",
-    "unsex": "ไม่ระบุ"
+    "unsex": "unsex"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "header": "ฟอร์ม และตาราง",
+  "header": "แบบฟอร์มและตาราง",
   "form": {
     "title": "คำนำหน้า",
     "firstName": "ชื่อ",
@@ -10,7 +10,7 @@
     "citizenId": "เลขประจำตัวประชาชน",
     "gender": "เพศ",
     "mobilePhone": "มือถือ",
-    "passportNo": "Passport No",
+    "passportNo": "เลขที่พาสปอร์ต",
     "expectedSalary": "เงินเดือนที่ต้องการ"
   },
   "gender": {
